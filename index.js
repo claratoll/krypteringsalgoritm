@@ -7,7 +7,7 @@ exports.handler = async (event, context) => {
 
   let message = JSON.parse(event.body);
 
-  // let encryptedData;
+  let encryptedData = { message: 'hey' };
 
   if (method === 'POST' && path === '/encrypt') {
     console.log(message);
@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
 
     console.log(encryptedData);
     return encryptedData;
-  } /* else if (method === 'GET' && path === '/decrypt') {
+  } else if (method === 'GET' && path === '/decrypt') {
     if (encryptedData) {
       const decryptedData = decrypt(encryptedData); // Dekrypterar det sparade objektet
       return decryptedData;
@@ -23,6 +23,6 @@ exports.handler = async (event, context) => {
       return 'No data to decrypt'; // Om det inte finns något att dekryptera
     }
   }
-*/
+
   return sendResponse(400, { message: 'error' });
 };
